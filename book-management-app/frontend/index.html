@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management System</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- App Bar -->
+    <header class="app-bar">
+        <div class="app-bar-content">
+            <span class="material-icons app-icon">menu_book</span>
+            <h1 class="app-title">Book Manager</h1>
+            <div class="app-actions">
+                <button class="icon-btn" title="Search">
+                    <span class="material-icons">search</span>
+                </button>
+                <button class="icon-btn" title="More">
+                    <span class="material-icons">more_vert</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Add Book Card -->
+        <div class="card elevated">
+            <div class="card-header">
+                <span class="material-icons header-icon">add_circle</span>
+                <h2>Add New Book</h2>
+            </div>
+            <div class="card-content">
+                <form id="addBookForm">
+                    <div class="input-group">
+                        <input type="text" id="title" name="title" required class="material-input">
+                        <label for="title" class="material-label">Book Title</label>
+                        <div class="input-line"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="text" id="author" name="author" required class="material-input">
+                        <label for="author" class="material-label">Author Name</label>
+                        <div class="input-line"></div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="number" id="price" name="price" step="0.01" min="0" required class="material-input">
+                        <label for="price" class="material-label">Price (USD)</label>
+                        <div class="input-line"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn-material">
+                        <span class="material-icons btn-icon">add</span>
+                        Add Book
+                        <div class="ripple"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Message Snackbar -->
+        <div id="snackbar" class="snackbar">
+            <span id="snackbar-message"></span>
+            <button class="snackbar-action" onclick="closeSnackbar()">DISMISS</button>
+        </div>
+
+        <!-- Books Section -->
+        <div class="section-header">
+            <h2>
+                <span class="material-icons section-icon">library_books</span>
+                Your Collection
+            </h2>
+            <div class="chip">
+                <span id="bookCount">0</span> Books
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading books...</p>
+        </div>
+
+        <!-- Books Grid -->
+        <div id="booksList" class="books-grid"></div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <button class="fab" onclick="scrollToTop()" title="Scroll to top">
+        <span class="material-icons">keyboard_arrow_up</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
